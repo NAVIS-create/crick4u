@@ -192,6 +192,17 @@ button {
   z-index: 1001;
 }
 
+.nav-logo-img {
+  height: 42px;
+  width: auto;
+  object-fit: contain;
+  transition: opacity var(--transition-fast);
+}
+
+.nav-logo:hover .nav-logo-img {
+  opacity: 0.85;
+}
+
 .logo-text {
   font-family: var(--font-heading);
   font-size: 22px;
@@ -1507,6 +1518,17 @@ button {
   margin-bottom: 16px;
 }
 
+.footer-logo-img {
+  height: 36px;
+  width: auto;
+  object-fit: contain;
+  transition: opacity var(--transition-fast);
+}
+
+.footer-logo:hover .footer-logo-img {
+  opacity: 0.85;
+}
+
 .footer-desc {
   font-size: 14px;
   color: var(--text-muted);
@@ -2659,4 +2681,10 @@ button {
   }
 }
 
+/* Modal Logo Image */
+.modal-logo-img {
+  height: 24px;
+  width: auto;
+  object-fit: contain;
+}
 

@@ -351,41 +351,75 @@ function handleQuickChip(type) {
 
   switch (type) {
     case 'equipment':
-      userText = 'Tell me about Day Plans & Equipment ($75)';
+      userText = 'What equipment is in the $75 Full Setup?';
       botReply = `
-        <p>🏏 <strong>Software + Full Capturing Setup ($75 / match or daily)</strong></p>
-        <p>Includes Analyzer Tier Software, 2 match cameras, cables, analysis laptop, DVR, monitor, and complete live match capturing kit.</p>
-        <p>💡 <em>Need a single-side camera setup? We offer custom low-cost options depending on match venue and location.</em></p>
-        <p><a href="https://wa.me/94762733698?text=Hi%20Impact%20Play,%20I'm%20interested%20in%20the%20Software%20+%20Camera%20Setup%20($75)%20package" target="_blank" rel="noopener" style="color: #25D366; font-weight: 600; text-decoration: underline;">👉 Reserve via WhatsApp (+94 76 273 3698)</a></p>
+        <p>🏏 <strong>Full Capturing Equipment + Software ($75 / match day):</strong></p>
+        <p>• <strong>2x Broadcast HD Match Cameras</strong> (Bowler run-up & Batsman facing angles)<br>
+           • <strong>Analysis Laptop</strong> with Impact Play pre-configured<br>
+           • <strong>Multi-channel DVR & Monitor</strong> for live match feed capture<br>
+           • <strong>All Cabling, Tripods & Power Gear</strong> included</p>
+        <p><a href="https://wa.me/94762733698?text=Hi%20Impact%20Play,%20I%20want%20to%20reserve%20the%20$75%20Full%20Equipment%20Setup" target="_blank" rel="noopener" style="color: #25D366; font-weight: 700; text-decoration: underline;">👉 Reserve Setup on WhatsApp (+94 76 273 3698)</a></p>
       `;
       break;
 
-    case 'software':
-      userText = 'Tell me about Software License ($35)';
+    case 'oneside':
+      userText = 'Can I get a 1-side camera setup for low cost?';
       botReply = `
-        <p>💻 <strong>Analyzer Tier Software Only ($35 / day)</strong></p>
-        <p>Instant access to professional ball-by-ball tagging, pitch maps, wagon wheels, bowling line/length analysis, and auto video clipping.</p>
-        <p>We also have monthly and yearly tier subscriptions for academies and clubs!</p>
-        <p><a href="https://wa.me/94762733698?text=Hi%20Impact%20Play,%20I%20want%20to%20get%20the%20Analyzer%20Tier%20Software%20($35/day)" target="_blank" rel="noopener" style="color: #25D366; font-weight: 600; text-decoration: underline;">👉 Get License on WhatsApp</a></p>
+        <p>📹 <strong>Yes! Single-Side Camera Setup Available:</strong></p>
+        <p>If you don't need dual-angle coverage or are looking for a budget-friendly option for academy matches or practice fixtures, we provide a 1-side camera package at a reduced rate.</p>
+        <p><em>*Cost varies based on match location, ground facilities, and schedule.</em></p>
+        <p><a href="https://wa.me/94762733698?text=Hi%20Impact%20Play,%20I'd%20like%20a%20quote%20for%20a%201-side%20camera%20setup" target="_blank" rel="noopener" style="color: #25D366; font-weight: 700; text-decoration: underline;">👉 Get Venue Quote on WhatsApp</a></p>
       `;
       break;
 
-    case 'whatsapp':
-      userText = 'Connect on WhatsApp';
+    case 'features':
+      userText = 'What cricket analysis & tagging features are included?';
       botReply = `
-        <p>💬 <strong>Chat directly with our specialists:</strong></p>
-        <p>We are available 24/7 on WhatsApp for immediate support, inquiries, and demo bookings.</p>
-        <p>📞 <strong>+94 76 273 3698</strong></p>
-        <p><a href="https://wa.me/94762733698" target="_blank" rel="noopener" style="display:inline-block; padding: 6px 14px; background:#25D366; color:#050d1a; font-weight:bold; border-radius: 20px; text-decoration:none; margin-top:4px;">Open WhatsApp Chat</a></p>
+        <p>📊 <strong>Impact Play Pro Analytics Engine:</strong></p>
+        <p>• <strong>Ball-by-Ball Tagging:</strong> Runs, extras, shot zones, dismissal types<br>
+           • <strong>Spatial Pitch Maps:</strong> Precise landing coordinates, bounce & movement<br>
+           • <strong>Interactive Wagon Wheels & Beehives:</strong> Filterable by batter/bowler<br>
+           • <strong>Automated KPI Reports:</strong> Instant PDF summaries for coaches & players</p>
+        <p><a href="https://wa.me/94762733698?text=Hi%20Impact%20Play,%20tell%20me%20more%20about%20your%20analysis%20software" target="_blank" rel="noopener" style="color: #25D366; font-weight: 700; text-decoration: underline;">👉 Chat with an Analyst on WhatsApp</a></p>
+      `;
+      break;
+
+    case 'clipping':
+      userText = 'How does automated video clipping & replay work?';
+      botReply = `
+        <p>🎥 <strong>Instant Multi-Angle Delivery Clipping:</strong></p>
+        <p>Every single ball is automatically indexed and clipped as it's scored. You can search deliveries by player, shot type, boundary, or wicket in seconds.</p>
+        <p>Allows coaches and broadcast overlays to replay any ball instantly during or after the match.</p>
+        <p><a href="https://wa.me/94762733698?text=Hi%20Impact%20Play,%20can%20you%20show%20me%20a%20demo%20of%20video%20clipping?" target="_blank" rel="noopener" style="color: #25D366; font-weight: 700; text-decoration: underline;">👉 Request Video Clipping Demo</a></p>
+      `;
+      break;
+
+    case 'analysts':
+      userText = 'Do you provide match analysts & operators?';
+      botReply = `
+        <p>🧑‍💻 <strong>Professional Match Day Operators & Analysts:</strong></p>
+        <p>Yes! We provide certified cricket analysts and trained equipment operators on-site to handle camera setup, live video capture, live scoring, and post-match analytics.</p>
+        <p>Trusted by coaches, clubs, and tournament organizers across Sri Lanka.</p>
+        <p><a href="https://wa.me/94762733698?text=Hi%20Impact%20Play,%20I%20need%20a%20match%20analyst%20for%20our%20tournament" target="_blank" rel="noopener" style="color: #25D366; font-weight: 700; text-decoration: underline;">👉 Book an Analyst on WhatsApp</a></p>
       `;
       break;
 
     case 'demo':
-      userText = 'Book a Free Trial & Demo';
+      userText = 'Book a Free Live Demo / Trial';
       botReply = `
-        <p>🎯 <strong>Free Interactive Walkthrough:</strong></p>
-        <p>We will demonstrate live match capture, auto-highlight generation, and player analytics tailored for your club or school team.</p>
-        <p><a href="https://wa.me/94762733698?text=Hi%20Impact%20Play,%20I'd%20like%20to%20book%20a%20free%20demo%20and%20trial" target="_blank" rel="noopener" style="color: #25D366; font-weight: 600; text-decoration: underline;">👉 Schedule Demo on WhatsApp (+94 76 273 3698)</a></p>
+        <p>🎯 <strong>Interactive Live Demo:</strong></p>
+        <p>We provide hands-on walkthroughs for cricket clubs, academies, and coaches. See live ball tagging, pitch maps, and auto video clipping in action.</p>
+        <p><a href="https://wa.me/94762733698?text=Hi%20Impact%20Play,%20I'd%20like%20to%20schedule%20a%20free%20live%20demo" target="_blank" rel="noopener" style="color: #25D366; font-weight: 700; text-decoration: underline;">👉 Schedule Free Demo on WhatsApp (+94 76 273 3698)</a></p>
+      `;
+      break;
+
+    case 'whatsapp':
+      userText = 'Connect directly on WhatsApp';
+      botReply = `
+        <p>💬 <strong>Direct WhatsApp Support:</strong></p>
+        <p>Our analysts and equipment managers reply within minutes!</p>
+        <p>📞 <strong>+94 76 273 3698</strong></p>
+        <p><a href="https://wa.me/94762733698" target="_blank" rel="noopener" style="display:inline-block; padding: 7px 16px; background:#25D366; color:#050d1a; font-weight:bold; border-radius: 20px; text-decoration:none; margin-top:4px;">Open WhatsApp Chat</a></p>
       `;
       break;
 
@@ -420,53 +454,77 @@ function handleChatSubmit(e) {
     removeTypingIndicator();
     const reply = generateSmartReply(query);
     appendBotMessage(reply);
-  }, 550);
+  }, 500);
 }
 
 function generateSmartReply(text) {
   const lower = text.toLowerCase();
 
-  if (lower.includes('price') || lower.includes('cost') || lower.includes('usd') || lower.includes('dollar') || lower.includes('rate') || lower.includes('plan')) {
+  if (lower.includes('price') || lower.includes('cost') || lower.includes('usd') || lower.includes('dollar') || lower.includes('rate') || lower.includes('plan') || lower.includes('fee')) {
     return `
-      <p>💰 <strong>Impact Play Pricing Options:</strong></p>
-      <p>• <strong>Software Only:</strong> $35 / match day<br>
-         • <strong>Software + Full Capturing Setup:</strong> $75 / day (includes 2 cameras, laptop, DVR, monitor, cables)<br>
-         • <em>Single camera setup available at lower rate based on location.</em></p>
-      <p><a href="https://wa.me/94762733698?text=Hi,%20I'd%20like%20a%20pricing%20quote" target="_blank" rel="noopener" style="color: #25D366; font-weight: 600; text-decoration: underline;">👉 Get Custom Quote on WhatsApp (+94 76 273 3698)</a></p>
+      <p>💰 <strong>Match Capturing Packages & Pricing:</strong></p>
+      <p>• <strong>Full Capturing Setup + Software:</strong> $75 / day or match (includes 2 cameras, laptop, DVR, monitor, cables)<br>
+         • <strong>One-Side Camera Setup:</strong> Low-cost option available (rates vary by ground venue/location)<br>
+         • <strong>Match Operator / Analyst:</strong> On-site personnel available upon request.</p>
+      <p><a href="https://wa.me/94762733698?text=Hi%20Impact%20Play,%20I'd%20like%20a%20pricing%20quote" target="_blank" rel="noopener" style="color: #25D366; font-weight: 700; text-decoration: underline;">👉 Inquire on WhatsApp (+94 76 273 3698)</a></p>
     `;
   }
 
-  if (lower.includes('equipment') || lower.includes('hardware') || lower.includes('camera') || lower.includes('setup') || lower.includes('dvr') || lower.includes('laptop')) {
+  if (lower.includes('equipment') || lower.includes('hardware') || lower.includes('camera') || lower.includes('setup') || lower.includes('dvr') || lower.includes('laptop') || lower.includes('one side') || lower.includes('1 side')) {
     return `
-      <p>📹 <strong>Complete Hardware Capturing Package:</strong></p>
-      <p>We supply high-speed HD broadcast-grade cameras, tripod mounts, long-run video cables, dedicated sports analysis laptop, DVR recording unit, and multi-angle display monitor.</p>
-      <p>Available per match for $75. Setup assistance included!</p>
-      <p><a href="https://wa.me/94762733698?text=Hi%20Impact%20Play,%20tell%20me%20more%20about%20the%20equipment%20setup" target="_blank" rel="noopener" style="color: #25D366; font-weight: 600; text-decoration: underline;">👉 Inquire Setup on WhatsApp</a></p>
+      <p>📹 <strong>Equipment & Match Setup:</strong></p>
+      <p>We provide full match setups: 2 broadcast HD cameras, dedicated analysis laptop, DVR unit, review monitor, and long-run cables.</p>
+      <p>A single-side camera setup is also available for lower cost depending on match venue location.</p>
+      <p><a href="https://wa.me/94762733698?text=Hi%20Impact%20Play,%20tell%20me%20about%20equipment%20availability" target="_blank" rel="noopener" style="color: #25D366; font-weight: 700; text-decoration: underline;">👉 Check Equipment Availability on WhatsApp</a></p>
+    `;
+  }
+
+  if (lower.includes('analyst') || lower.includes('operator') || lower.includes('scorer') || lower.includes('staff')) {
+    return `
+      <p>🧑‍💻 <strong>Match Analysts & Operators:</strong></p>
+      <p>We provide trained Sri Lanka Cricket certified analysts to handle live match video capture, ball tagging, and instant PDF KPI report generation for your tournament.</p>
+      <p><a href="https://wa.me/94762733698?text=Hi%20Impact%20Play,%20I%20need%20an%20analyst%20for%20our%20match" target="_blank" rel="noopener" style="color: #25D366; font-weight: 700; text-decoration: underline;">👉 Book Analyst on WhatsApp</a></p>
+    `;
+  }
+
+  if (lower.includes('feature') || lower.includes('tagging') || lower.includes('pitch map') || lower.includes('wagon') || lower.includes('report') || lower.includes('stat')) {
+    return `
+      <p>📊 <strong>Analysis & Reporting Capabilities:</strong></p>
+      <p>Impact Play delivers real-time pitch maps, wagon wheels, beehive plots, ball-by-ball tagging, auto video clipping, and coach-ready KPI reports.</p>
+      <p><a href="https://wa.me/94762733698?text=Hi%20Impact%20Play,%20tell%20me%20more%20about%20the%20analysis%20features" target="_blank" rel="noopener" style="color: #25D366; font-weight: 700; text-decoration: underline;">👉 Discuss Features on WhatsApp</a></p>
+    `;
+  }
+
+  if (lower.includes('video') || lower.includes('clip') || lower.includes('replay') || lower.includes('record')) {
+    return `
+      <p>🎥 <strong>Automated Delivery Video Clipping:</strong></p>
+      <p>Every ball is captured and tagged to the scoring data, allowing instant video search by bowler, batter, boundary, or wicket.</p>
+      <p><a href="https://wa.me/94762733698?text=Hi%20Impact%20Play,%20tell%20me%20about%20video%20clipping" target="_blank" rel="noopener" style="color: #25D366; font-weight: 700; text-decoration: underline;">👉 Learn More on WhatsApp</a></p>
     `;
   }
 
   if (lower.includes('whatsapp') || lower.includes('phone') || lower.includes('contact') || lower.includes('call') || lower.includes('number')) {
     return `
-      <p>📞 <strong>Official Contact Details:</strong></p>
-      <p>• <strong>WhatsApp:</strong> <a href="https://wa.me/94762733698" target="_blank" style="color:#25D366; font-weight:600;">+94 76 273 3698</a><br>
+      <p>📞 <strong>Official Contact:</strong></p>
+      <p>• <strong>WhatsApp:</strong> <a href="https://wa.me/94762733698" target="_blank" style="color:#25D366; font-weight:700;">+94 76 273 3698</a><br>
          • <strong>Email:</strong> support@impactplay.io<br>
          • <strong>Socials:</strong> @impactplaycricket</p>
-      <p>Our analysts and technical team respond within minutes on WhatsApp!</p>
+      <p>Our specialists reply within minutes on WhatsApp!</p>
     `;
   }
 
   if (lower.includes('demo') || lower.includes('trial') || lower.includes('test') || lower.includes('free')) {
     return `
-      <p>🎯 <strong>Start Your Free Trial:</strong></p>
-      <p>We offer full access trial licenses for teams, clubs, and independent performance analysts.</p>
-      <p><a href="https://wa.me/94762733698?text=Hi,%20I'd%20like%20a%20free%20trial%20license" target="_blank" rel="noopener" style="color: #25D366; font-weight: 600; text-decoration: underline;">👉 Request Trial via WhatsApp (+94 76 273 3698)</a></p>
+      <p>🎯 <strong>Book a Free Interactive Demo:</strong></p>
+      <p>We provide full walkthroughs for cricket clubs, academies, and analysts.</p>
+      <p><a href="https://wa.me/94762733698?text=Hi%20Impact%20Play,%20I'd%20like%20to%20book%20a%20demo" target="_blank" rel="noopener" style="color: #25D366; font-weight: 700; text-decoration: underline;">👉 Schedule Demo via WhatsApp (+94 76 273 3698)</a></p>
     `;
   }
 
   return `
-    <p>Thank you for your message! 🙏</p>
-    <p>Our cricket technology team can answer any specific questions right away. You can also connect directly with our live support engineer on WhatsApp:</p>
-    <p><a href="https://wa.me/94762733698?text=Hi%20Impact%20Play,%20I%20have%20a%20question" target="_blank" rel="noopener" style="display:inline-block; padding: 7px 14px; background:#25D366; color:#050d1a; font-weight:700; border-radius: 20px; text-decoration:none; margin-top:4px;">💬 Chat on WhatsApp (+94 76 273 3698)</a></p>
+    <p>Thank you for reaching out! 🙏</p>
+    <p>Our cricket technology team can answer any specific questions right away. You can also chat directly with our technical analyst on WhatsApp:</p>
+    <p><a href="https://wa.me/94762733698?text=Hi%20Impact%20Play,%20I%20have%20a%20question" target="_blank" rel="noopener" style="display:inline-block; padding: 7px 16px; background:#25D366; color:#050d1a; font-weight:700; border-radius: 20px; text-decoration:none; margin-top:4px;">💬 Chat on WhatsApp (+94 76 273 3698)</a></p>
   `;
 }
 

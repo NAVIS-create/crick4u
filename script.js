@@ -1,5 +1,5 @@
 /* ================================================
-   IMPACT PLAY — Cricket Analysis Software
+   CRICK4U — Cricket Analysis Software
    Main JavaScript
    ================================================ */
 
@@ -355,10 +355,10 @@ function handleQuickChip(type) {
       botReply = `
         <p>🏏 <strong>Full Capturing Equipment + Software ($75 / match day):</strong></p>
         <p>• <strong>2x Broadcast HD Match Cameras</strong> (Bowler run-up & Batsman facing angles)<br>
-           • <strong>Analysis Laptop</strong> with Impact Play pre-configured<br>
+           • <strong>Analysis Laptop</strong> with Crick4U pre-configured<br>
            • <strong>Multi-channel DVR & Monitor</strong> for live match feed capture<br>
            • <strong>All Cabling, Tripods & Power Gear</strong> included</p>
-        <p><a href="https://wa.me/94762733698?text=Hi%20Impact%20Play,%20I%20want%20to%20reserve%20the%20$75%20Full%20Equipment%20Setup" target="_blank" rel="noopener" style="color: #25D366; font-weight: 700; text-decoration: underline;">👉 Reserve Setup on WhatsApp (+94 76 273 3698)</a></p>
+        <p><a href="https://wa.me/94762733698?text=Hi%20Crick4U,%20I%20want%20to%20reserve%20the%20$75%20Full%20Equipment%20Setup" target="_blank" rel="noopener" style="color: #25D366; font-weight: 700; text-decoration: underline;">👉 Reserve Setup on WhatsApp (+94 76 273 3698)</a></p>
       `;
       break;
 
@@ -368,19 +368,19 @@ function handleQuickChip(type) {
         <p>📹 <strong>Yes! Single-Side Camera Setup Available:</strong></p>
         <p>If you don't need dual-angle coverage or are looking for a budget-friendly option for academy matches or practice fixtures, we provide a 1-side camera package at a reduced rate.</p>
         <p><em>*Cost varies based on match location, ground facilities, and schedule.</em></p>
-        <p><a href="https://wa.me/94762733698?text=Hi%20Impact%20Play,%20I'd%20like%20a%20quote%20for%20a%201-side%20camera%20setup" target="_blank" rel="noopener" style="color: #25D366; font-weight: 700; text-decoration: underline;">👉 Get Venue Quote on WhatsApp</a></p>
+        <p><a href="https://wa.me/94762733698?text=Hi%20Crick4U,%20I'd%20like%20a%20quote%20for%20a%201-side%20camera%20setup" target="_blank" rel="noopener" style="color: #25D366; font-weight: 700; text-decoration: underline;">👉 Get Venue Quote on WhatsApp</a></p>
       `;
       break;
 
     case 'features':
       userText = 'What cricket analysis & tagging features are included?';
       botReply = `
-        <p>📊 <strong>Impact Play Pro Analytics Engine:</strong></p>
+        <p>📊 <strong>Crick4U Pro Analytics Engine:</strong></p>
         <p>• <strong>Ball-by-Ball Tagging:</strong> Runs, extras, shot zones, dismissal types<br>
            • <strong>Spatial Pitch Maps:</strong> Precise landing coordinates, bounce & movement<br>
            • <strong>Interactive Wagon Wheels & Beehives:</strong> Filterable by batter/bowler<br>
            • <strong>Automated KPI Reports:</strong> Instant PDF summaries for coaches & players</p>
-        <p><a href="https://wa.me/94762733698?text=Hi%20Impact%20Play,%20tell%20me%20more%20about%20your%20analysis%20software" target="_blank" rel="noopener" style="color: #25D366; font-weight: 700; text-decoration: underline;">👉 Chat with an Analyst on WhatsApp</a></p>
+        <p><a href="https://wa.me/94762733698?text=Hi%20Crick4U,%20tell%20me%20more%20about%20your%20analysis%20software" target="_blank" rel="noopener" style="color: #25D366; font-weight: 700; text-decoration: underline;">👉 Chat with an Analyst on WhatsApp</a></p>
       `;
       break;
 
@@ -390,7 +390,7 @@ function handleQuickChip(type) {
         <p>🎥 <strong>Instant Multi-Angle Delivery Clipping:</strong></p>
         <p>Every single ball is automatically indexed and clipped as it's scored. You can search deliveries by player, shot type, boundary, or wicket in seconds.</p>
         <p>Allows coaches and broadcast overlays to replay any ball instantly during or after the match.</p>
-        <p><a href="https://wa.me/94762733698?text=Hi%20Impact%20Play,%20can%20you%20show%20me%20a%20demo%20of%20video%20clipping?" target="_blank" rel="noopener" style="color: #25D366; font-weight: 700; text-decoration: underline;">👉 Request Video Clipping Demo</a></p>
+        <p><a href="https://wa.me/94762733698?text=Hi%20Crick4U,%20can%20you%20show%20me%20a%20demo%20of%20video%20clipping?" target="_blank" rel="noopener" style="color: #25D366; font-weight: 700; text-decoration: underline;">👉 Request Video Clipping Demo</a></p>
       `;
       break;
 
@@ -400,7 +400,7 @@ function handleQuickChip(type) {
         <p>🧑‍💻 <strong>Professional Match Day Operators & Analysts:</strong></p>
         <p>Yes! We provide certified cricket analysts and trained equipment operators on-site to handle camera setup, live video capture, live scoring, and post-match analytics.</p>
         <p>Trusted by coaches, clubs, and tournament organizers across Sri Lanka.</p>
-        <p><a href="https://wa.me/94762733698?text=Hi%20Impact%20Play,%20I%20need%20a%20match%20analyst%20for%20our%20tournament" target="_blank" rel="noopener" style="color: #25D366; font-weight: 700; text-decoration: underline;">👉 Book an Analyst on WhatsApp</a></p>
+        <p><a href="https://wa.me/94762733698?text=Hi%20Crick4U,%20I%20need%20a%20match%20analyst%20for%20our%20tournament" target="_blank" rel="noopener" style="color: #25D366; font-weight: 700; text-decoration: underline;">👉 Book an Analyst on WhatsApp</a></p>
       `;
       break;
 
@@ -410,7 +410,7 @@ function handleQuickChip(type) {
         <p>🎯 <strong>Interactive Live Demo & Trial:</strong></p>
         <p>We provide hands-on walkthroughs for cricket clubs, academies, and coaches. See live ball tagging, pitch maps, and auto video clipping in action.</p>
         <p><button onclick="openOrderModal('Free 14-Day Trial')" style="background:linear-gradient(135deg,#00d4aa,#0ea5e9); color:#050d1a; font-weight:700; border:none; padding:7px 14px; border-radius:16px; cursor:pointer; margin-top:4px; font-size:12.5px;">📝 Fill Registration & Trial Form</button></p>
-        <p><a href="https://wa.me/94762733698?text=Hi%20Impact%20Play,%20I'd%20like%20to%20schedule%20a%20free%20live%20demo" target="_blank" rel="noopener" style="color: #25D366; font-weight: 700; text-decoration: underline;">👉 Or Chat on WhatsApp (+94 76 273 3698)</a></p>
+        <p><a href="https://wa.me/94762733698?text=Hi%20Crick4U,%20I'd%20like%20to%20schedule%20a%20free%20live%20demo" target="_blank" rel="noopener" style="color: #25D366; font-weight: 700; text-decoration: underline;">👉 Or Chat on WhatsApp (+94 76 273 3698)</a></p>
       `;
       break;
 
@@ -467,7 +467,7 @@ function generateSmartReply(text) {
       <p>• <strong>Full Capturing Setup + Software:</strong> $75 / day or match (includes 2 cameras, laptop, DVR, monitor, cables)<br>
          • <strong>One-Side Camera Setup:</strong> Low-cost option available (rates vary by ground venue/location)<br>
          • <strong>Match Operator / Analyst:</strong> On-site personnel available upon request.</p>
-      <p><a href="https://wa.me/94762733698?text=Hi%20Impact%20Play,%20I'd%20like%20a%20pricing%20quote" target="_blank" rel="noopener" style="color: #25D366; font-weight: 700; text-decoration: underline;">👉 Inquire on WhatsApp (+94 76 273 3698)</a></p>
+      <p><a href="https://wa.me/94762733698?text=Hi%20Crick4U,%20I'd%20like%20a%20pricing%20quote" target="_blank" rel="noopener" style="color: #25D366; font-weight: 700; text-decoration: underline;">👉 Inquire on WhatsApp (+94 76 273 3698)</a></p>
     `;
   }
 
@@ -476,7 +476,7 @@ function generateSmartReply(text) {
       <p>📹 <strong>Equipment & Match Setup:</strong></p>
       <p>We provide full match setups: 2 broadcast HD cameras, dedicated analysis laptop, DVR unit, review monitor, and long-run cables.</p>
       <p>A single-side camera setup is also available for lower cost depending on match venue location.</p>
-      <p><a href="https://wa.me/94762733698?text=Hi%20Impact%20Play,%20tell%20me%20about%20equipment%20availability" target="_blank" rel="noopener" style="color: #25D366; font-weight: 700; text-decoration: underline;">👉 Check Equipment Availability on WhatsApp</a></p>
+      <p><a href="https://wa.me/94762733698?text=Hi%20Crick4U,%20tell%20me%20about%20equipment%20availability" target="_blank" rel="noopener" style="color: #25D366; font-weight: 700; text-decoration: underline;">👉 Check Equipment Availability on WhatsApp</a></p>
     `;
   }
 
@@ -484,15 +484,15 @@ function generateSmartReply(text) {
     return `
       <p>🧑‍💻 <strong>Match Analysts & Operators:</strong></p>
       <p>We provide trained Sri Lanka Cricket certified analysts to handle live match video capture, ball tagging, and instant PDF KPI report generation for your tournament.</p>
-      <p><a href="https://wa.me/94762733698?text=Hi%20Impact%20Play,%20I%20need%20an%20analyst%20for%20our%20match" target="_blank" rel="noopener" style="color: #25D366; font-weight: 700; text-decoration: underline;">👉 Book Analyst on WhatsApp</a></p>
+      <p><a href="https://wa.me/94762733698?text=Hi%20Crick4U,%20I%20need%20an%20analyst%20for%20our%20match" target="_blank" rel="noopener" style="color: #25D366; font-weight: 700; text-decoration: underline;">👉 Book Analyst on WhatsApp</a></p>
     `;
   }
 
   if (lower.includes('feature') || lower.includes('tagging') || lower.includes('pitch map') || lower.includes('wagon') || lower.includes('report') || lower.includes('stat')) {
     return `
       <p>📊 <strong>Analysis & Reporting Capabilities:</strong></p>
-      <p>Impact Play delivers real-time pitch maps, wagon wheels, beehive plots, ball-by-ball tagging, auto video clipping, and coach-ready KPI reports.</p>
-      <p><a href="https://wa.me/94762733698?text=Hi%20Impact%20Play,%20tell%20me%20more%20about%20the%20analysis%20features" target="_blank" rel="noopener" style="color: #25D366; font-weight: 700; text-decoration: underline;">👉 Discuss Features on WhatsApp</a></p>
+      <p>Crick4U delivers real-time pitch maps, wagon wheels, beehive plots, ball-by-ball tagging, auto video clipping, and coach-ready KPI reports.</p>
+      <p><a href="https://wa.me/94762733698?text=Hi%20Crick4U,%20tell%20me%20more%20about%20the%20analysis%20features" target="_blank" rel="noopener" style="color: #25D366; font-weight: 700; text-decoration: underline;">👉 Discuss Features on WhatsApp</a></p>
     `;
   }
 
@@ -500,7 +500,7 @@ function generateSmartReply(text) {
     return `
       <p>🎥 <strong>Automated Delivery Video Clipping:</strong></p>
       <p>Every ball is captured and tagged to the scoring data, allowing instant video search by bowler, batter, boundary, or wicket.</p>
-      <p><a href="https://wa.me/94762733698?text=Hi%20Impact%20Play,%20tell%20me%20about%20video%20clipping" target="_blank" rel="noopener" style="color: #25D366; font-weight: 700; text-decoration: underline;">👉 Learn More on WhatsApp</a></p>
+      <p><a href="https://wa.me/94762733698?text=Hi%20Crick4U,%20tell%20me%20about%20video%20clipping" target="_blank" rel="noopener" style="color: #25D366; font-weight: 700; text-decoration: underline;">👉 Learn More on WhatsApp</a></p>
     `;
   }
 
@@ -508,8 +508,8 @@ function generateSmartReply(text) {
     return `
       <p>📞 <strong>Official Contact:</strong></p>
       <p>• <strong>WhatsApp:</strong> <a href="https://wa.me/94762733698" target="_blank" style="color:#25D366; font-weight:700;">+94 76 273 3698</a><br>
-         • <strong>Email:</strong> support@impactplay.io<br>
-         • <strong>Socials:</strong> @impactplaycricket</p>
+         • <strong>Email:</strong> support@crick4u.io<br>
+         • <strong>Socials:</strong> @crick4ucricket</p>
       <p>Our specialists reply within minutes on WhatsApp!</p>
     `;
   }
@@ -518,14 +518,14 @@ function generateSmartReply(text) {
     return `
       <p>🎯 <strong>Book a Free Interactive Demo:</strong></p>
       <p>We provide full walkthroughs for cricket clubs, academies, and analysts.</p>
-      <p><a href="https://wa.me/94762733698?text=Hi%20Impact%20Play,%20I'd%20like%20to%20book%20a%20demo" target="_blank" rel="noopener" style="color: #25D366; font-weight: 700; text-decoration: underline;">👉 Schedule Demo via WhatsApp (+94 76 273 3698)</a></p>
+      <p><a href="https://wa.me/94762733698?text=Hi%20Crick4U,%20I'd%20like%20to%20book%20a%20demo" target="_blank" rel="noopener" style="color: #25D366; font-weight: 700; text-decoration: underline;">👉 Schedule Demo via WhatsApp (+94 76 273 3698)</a></p>
     `;
   }
 
   return `
     <p>Thank you for reaching out! 🙏</p>
     <p>Our cricket technology team can answer any specific questions right away. You can also chat directly with our technical analyst on WhatsApp:</p>
-    <p><a href="https://wa.me/94762733698?text=Hi%20Impact%20Play,%20I%20have%20a%20question" target="_blank" rel="noopener" style="display:inline-block; padding: 7px 16px; background:#25D366; color:#050d1a; font-weight:700; border-radius: 20px; text-decoration:none; margin-top:4px;">💬 Chat on WhatsApp (+94 76 273 3698)</a></p>
+    <p><a href="https://wa.me/94762733698?text=Hi%20Crick4U,%20I%20have%20a%20question" target="_blank" rel="noopener" style="display:inline-block; padding: 7px 16px; background:#25D366; color:#050d1a; font-weight:700; border-radius: 20px; text-decoration:none; margin-top:4px;">💬 Chat on WhatsApp (+94 76 273 3698)</a></p>
   `;
 }
 
@@ -668,9 +668,9 @@ function submitOrderViaWhatsApp() {
   const data = validateOrderFormData();
   if (!data) return;
 
-  const refNo = 'IP-' + Math.floor(100000 + Math.random() * 900000);
+  const refNo = 'C4U-' + Math.floor(100000 + Math.random() * 900000);
 
-  const text = `🏏 *IMPACT PLAY — ORDER / TRIAL REGISTRATION*
+  const text = `🏏 *CRICK4U — ORDER / TRIAL REGISTRATION*
 ━━━━━━━━━━━━━━━━━━━━━━
 *Ref ID:* #${refNo}
 *Name:* ${data.firstName} ${data.lastName}
@@ -686,7 +686,7 @@ function submitOrderViaWhatsApp() {
 *Requirements / Message:*
 ${data.message || 'Standard trial setup and onboarding requested.'}
 ━━━━━━━━━━━━━━━━━━━━━━
-_Sent via Impact Play Official Website (navis-create.github.io/impact-play)_`;
+_Sent via Crick4U Official Website (navis-create.github.io/impact-play)_`;
 
   const waUrl = `https://wa.me/94762733698?text=${encodeURIComponent(text)}`;
   window.open(waUrl, '_blank');
@@ -699,14 +699,14 @@ function submitOrderViaEmailAndPDF() {
   const data = validateOrderFormData();
   if (!data) return;
 
-  const refNo = 'IP-' + Math.floor(100000 + Math.random() * 900000);
+  const refNo = 'C4U-' + Math.floor(100000 + Math.random() * 900000);
 
   // Generate & Download PDF
   generateOrderPDF(data, refNo);
 
   // Prepare and open Email
-  const mailSubject = encodeURIComponent(`[Impact Play Registration #${refNo}] ${data.plan} - ${data.firstName} ${data.lastName} (${data.organisation})`);
-  const mailBody = encodeURIComponent(`Hello Impact Play Support Team,
+  const mailSubject = encodeURIComponent(`[Crick4U Registration #${refNo}] ${data.plan} - ${data.firstName} ${data.lastName} (${data.organisation})`);
+  const mailBody = encodeURIComponent(`Hello Crick4U Support Team,
 
 Please review my registration and trial / package order below:
 
@@ -724,7 +724,7 @@ ${data.plan}
 Special Notes / Match Dates / Venue:
 ${data.message || 'No additional notes provided.'}
 
-I have downloaded the official Impact Play PDF confirmation and can attach it if required.
+I have downloaded the official Crick4U PDF confirmation and can attach it if required.
 
 Best regards,
 ${data.firstName} ${data.lastName}
@@ -732,11 +732,11 @@ Phone: ${data.phone}
 Organisation: ${data.organisation}`);
 
   setTimeout(() => {
-    window.location.href = `mailto:support@impactplay.io?subject=${mailSubject}&body=${mailBody}`;
+    window.location.href = `mailto:support@crick4u.io?subject=${mailSubject}&body=${mailBody}`;
   }, 400);
 
   // Show success in modal
-  showModalSuccess(`Your official PDF document has been generated and downloaded. Your email client has also been opened to send your inquiry to support@impactplay.io.`);
+  showModalSuccess(`Your official PDF document has been generated and downloaded. Your email client has also been opened to send your inquiry to support@crick4u.io.`);
 }
 
 function showModalSuccess(message) {
@@ -781,7 +781,7 @@ function generateOrderPDF(data, refNo) {
   doc.setTextColor(255, 255, 255);
   doc.setFont('helvetica', 'bold');
   doc.setFontSize(22);
-  doc.text('IMPACT PLAY', 18, 20);
+  doc.text('CRICK4U', 18, 20);
 
   doc.setFont('helvetica', 'bold');
   doc.setFontSize(9.5);
@@ -899,18 +899,18 @@ function generateOrderPDF(data, refNo) {
   doc.setFontSize(8.5);
   doc.setTextColor(71, 85, 105);
   doc.text('• Direct WhatsApp Support: +94 76 273 3698 (Instant Response 24/7)', 22, currentY + 15);
-  doc.text('• Dedicated Email: support@impactplay.io', 22, currentY + 21);
+  doc.text('• Dedicated Email: support@crick4u.io', 22, currentY + 21);
   doc.text('• Web Portal: https://navis-create.github.io/impact-play/', 22, currentY + 27);
   doc.text('• Certified analysts & match capture crews available for Colombo CC, Panadura SC & clubs.', 22, currentY + 33);
 
   // Footer Tagline
   doc.setFontSize(8);
   doc.setTextColor(148, 163, 184);
-  doc.text('Impact Play Cricket Analytics © 2026. This registration confirmation serves as an official customer inquiry voucher.', 105, 288, { align: 'center' });
+  doc.text('Crick4U Cricket Analytics © 2026. This registration confirmation serves as an official customer inquiry voucher.', 105, 288, { align: 'center' });
 
   // Download PDF file
   const safeName = `${data.firstName}_${data.lastName}`.replace(/[^a-zA-Z0-9]/g, '_');
-  const filename = `ImpactPlay_Order_${safeName}_${refNo}.pdf`;
+  const filename = `Crick4U_Order_${safeName}_${refNo}.pdf`;
   doc.save(filename);
 }
 

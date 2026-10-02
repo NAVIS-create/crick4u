@@ -686,7 +686,7 @@ function submitOrderViaWhatsApp() {
 *Requirements / Message:*
 ${data.message || 'Standard trial setup and onboarding requested.'}
 ━━━━━━━━━━━━━━━━━━━━━━
-_Sent via Crick4U Official Website (navis-create.github.io/impact-play)_`;
+_Sent via Crick4U Official Website (navis-create.github.io/crick4u)_`;
 
   const waUrl = `https://wa.me/94762733698?text=${encodeURIComponent(text)}`;
   window.open(waUrl, '_blank');
@@ -900,7 +900,7 @@ function generateOrderPDF(data, refNo) {
   doc.setTextColor(71, 85, 105);
   doc.text('• Direct WhatsApp Support: +94 76 273 3698 (Instant Response 24/7)', 22, currentY + 15);
   doc.text('• Dedicated Email: support@crick4u.io', 22, currentY + 21);
-  doc.text('• Web Portal: https://navis-create.github.io/impact-play/', 22, currentY + 27);
+  doc.text('• Web Portal: https://navis-create.github.io/crick4u/', 22, currentY + 27);
   doc.text('• Certified analysts & match capture crews available for Colombo CC, Panadura SC & clubs.', 22, currentY + 33);
 
   // Footer Tagline

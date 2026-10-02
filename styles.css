@@ -193,9 +193,9 @@ button {
 }
 
 .nav-logo-img {
-  height: 38px;
-  max-height: 38px;
-  max-width: 160px;
+  height: 48px;
+  max-height: 48px;
+  max-width: 200px;
   width: auto;
   object-fit: contain;
   display: block;
@@ -203,8 +203,9 @@ button {
 }
 
 .nav-logo:hover .nav-logo-img {
-  opacity: 0.85;
+  opacity: 0.88;
 }
+
 
 .logo-text {
   font-family: var(--font-heading);
@@ -1522,9 +1523,9 @@ button {
 }
 
 .footer-logo-img {
-  height: 32px;
-  max-height: 32px;
-  max-width: 140px;
+  height: 42px;
+  max-height: 42px;
+  max-width: 180px;
   width: auto;
   object-fit: contain;
   display: block;
@@ -1532,7 +1533,7 @@ button {
 }
 
 .footer-logo:hover .footer-logo-img {
-  opacity: 0.85;
+  opacity: 0.88;
 }
 
 .footer-desc {

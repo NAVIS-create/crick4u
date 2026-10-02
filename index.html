@@ -42,7 +42,7 @@
 
       <div class="nav-actions">
         <a href="#" class="btn-nav-login" id="btn-login">Log In</a>
-        <a href="#pricing" class="btn-nav-cta" id="btn-start">Get Started</a>
+        <a href="javascript:void(0)" onclick="openOrderModal('Free 14-Day Trial')" class="btn-nav-cta" id="btn-start">Get Started</a>
       </div>
 
       <button class="nav-hamburger" id="nav-hamburger" aria-label="Toggle navigation menu">
@@ -72,7 +72,7 @@
         field placements, and match strategies — giving you the edge that wins championships.
       </p>
       <div class="hero-cta">
-        <a href="#pricing" class="btn-primary" id="hero-cta-primary">
+        <a href="javascript:void(0)" onclick="openOrderModal('Free 14-Day Trial')" class="btn-primary" id="hero-cta-primary">
           <span>Start Free Trial</span>
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
             <path d="M4 10h12M12 6l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -225,7 +225,7 @@
             <li class="excluded"><span class="x-icon">✕</span> API access</li>
             <li class="excluded"><span class="x-icon">✕</span> Viewer portal for players</li>
           </ul>
-          <a href="#" class="btn-plan btn-plan-free" id="btn-plan-free">Get Started Free</a>
+          <a href="javascript:void(0)" onclick="openOrderModal('Free 14-Day Trial')" class="btn-plan btn-plan-free" id="btn-plan-free">Get Started Free</a>
         </div>
 
         <!-- ANALYST -->
@@ -252,7 +252,7 @@
             <li class="excluded"><span class="x-icon">✕</span> Automated live scoring overlay</li>
             <li class="excluded"><span class="x-icon">✕</span> Viewer portal for players</li>
           </ul>
-          <a href="#" class="btn-plan btn-plan-analyst" id="btn-plan-analyst">Start 14-Day Trial</a>
+          <a href="javascript:void(0)" onclick="openOrderModal('Analyzer Plan ($80/month)')" class="btn-plan btn-plan-analyst" id="btn-plan-analyst">Start 14-Day Trial</a>
         </div>
 
         <!-- ANALYST PRO (Popular) -->
@@ -279,7 +279,7 @@
             <li class="excluded"><span class="x-icon">✕</span> Automated live scoring overlay</li>
             <li class="excluded"><span class="x-icon">✕</span> Viewer portal for players</li>
           </ul>
-          <a href="#" class="btn-plan btn-plan-pro" id="btn-plan-pro">Start 14-Day Trial</a>
+          <a href="javascript:void(0)" onclick="openOrderModal('Analyzer Pro Plan ($125/month - Most Popular)')" class="btn-plan btn-plan-pro" id="btn-plan-pro">Start 14-Day Trial</a>
         </div>
 
         <!-- ANALYST PRO+ -->
@@ -304,7 +304,7 @@
             <li class="included"><span class="check-icon">✓</span> Archival footage for broadcasters</li>
             <li class="included"><span class="check-icon">✓</span> Priority support & custom integrations</li>
           </ul>
-          <a href="#" class="btn-plan btn-plan-enterprise" id="btn-plan-enterprise">Contact Sales</a>
+          <a href="javascript:void(0)" onclick="openOrderModal('Analyzer Pro+ Enterprise ($200/month)')" class="btn-plan btn-plan-enterprise" id="btn-plan-enterprise">Contact Sales</a>
         </div>
 
       </div>
@@ -343,7 +343,7 @@
               <li><span class="daily-check">✓</span> Works with any compatible laptop & camera setup</li>
             </ul>
             <div class="daily-cta-wrap">
-              <a href="#cta" class="btn-daily btn-daily-software" id="btn-daily-software">Get Software License</a>
+              <a href="javascript:void(0)" onclick="openOrderModal('Daily Plan: Software Only ($35/day)')" class="btn-daily btn-daily-software" id="btn-daily-software">Get Software License</a>
             </div>
           </div>
 
@@ -372,7 +372,7 @@
               <li><span class="daily-check info">ℹ</span> <span class="location-note">Note: Cost may change based on match venue & location distance</span></li>
             </ul>
             <div class="daily-cta-wrap">
-              <a href="#cta" class="btn-daily btn-daily-hardware" id="btn-daily-hardware">Book Full Setup & Hardware</a>
+              <a href="javascript:void(0)" onclick="openOrderModal('Daily Plan: Software + Full Hardware Setup ($75/day)')" class="btn-daily btn-daily-hardware" id="btn-daily-hardware">Book Full Setup & Hardware</a>
             </div>
           </div>
 
@@ -529,7 +529,7 @@
         <h2 class="cta-title">Ready to Transform Your <span class="gradient-text">Cricket Analysis</span>?</h2>
         <p class="cta-subtitle">Join 5,000+ analysts who trust Impact Play. Start your free trial today.</p>
         <div class="cta-buttons">
-          <a href="#pricing" class="btn-primary" id="cta-start">
+          <a href="javascript:void(0)" onclick="openOrderModal('Free 14-Day Trial')" class="btn-primary" id="cta-start">
             <span>Start Free Trial</span>
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
               <path d="M4 10h12M12 6l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -740,8 +740,164 @@
         </div>
       </div>
     </div>
+  <!-- ========== ORDER / TRIAL FORM MODAL ========== -->
+  <div class="modal-backdrop" id="order-modal-backdrop" onclick="handleModalBackdropClick(event)">
+    <div class="order-modal-container" role="dialog" aria-modal="true" aria-labelledby="modal-heading">
+      <div class="order-modal-header">
+        <div class="modal-header-brand">
+          <div class="modal-logo-icon">
+            <svg width="24" height="24" viewBox="0 0 32 32" fill="none">
+              <circle cx="16" cy="16" r="14" stroke="#00d4aa" stroke-width="2.5"/>
+              <path d="M10 20 L16 8 L22 20" stroke="#0ea5e9" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="16" cy="14" r="3" fill="#00d4aa"/>
+            </svg>
+          </div>
+          <span class="modal-badge-tag">REGISTRATION & INQUIRY</span>
+        </div>
+        <button class="modal-close-btn" onclick="closeOrderModal()" aria-label="Close modal">✕</button>
+      </div>
+
+      <div class="order-modal-body">
+        <div class="modal-intro">
+          <h2 class="modal-title" id="modal-heading">Let's get started.</h2>
+          <p class="modal-subtitle">Experience Impact Play's game-changing cricket technology for yourself. Just fill in the form, and our technical team will be in touch soon.</p>
+        </div>
+
+        <form class="order-form" id="order-form" onsubmit="event.preventDefault()">
+          <!-- Name Row -->
+          <div class="form-row form-row-split">
+            <div class="form-group">
+              <label for="form-firstname">First name <span class="required-star">*</span></label>
+              <input type="text" id="form-firstname" placeholder="Your first name" required>
+            </div>
+            <div class="form-group">
+              <label for="form-lastname">Last name <span class="required-star">*</span></label>
+              <input type="text" id="form-lastname" placeholder="Your last name" required>
+            </div>
+          </div>
+
+          <!-- Email -->
+          <div class="form-group">
+            <label for="form-email">Email address <span class="required-star">*</span></label>
+            <input type="email" id="form-email" placeholder="example@email.com" required>
+          </div>
+
+          <!-- Phone Number -->
+          <div class="form-group">
+            <label for="form-phone">Phone number <span class="required-star">*</span></label>
+            <input type="tel" id="form-phone" placeholder="e.g. +94 76 273 3698" required>
+          </div>
+
+          <!-- Country & Organisation -->
+          <div class="form-row form-row-split">
+            <div class="form-group">
+              <label for="form-country">Country <span class="required-star">*</span></label>
+              <select id="form-country" required>
+                <option value="" disabled selected>Select country</option>
+                <option value="Sri Lanka">Sri Lanka</option>
+                <option value="India">India</option>
+                <option value="Australia">Australia</option>
+                <option value="England / UK">England / UK</option>
+                <option value="South Africa">South Africa</option>
+                <option value="Pakistan">Pakistan</option>
+                <option value="New Zealand">New Zealand</option>
+                <option value="West Indies">West Indies</option>
+                <option value="United Arab Emirates">United Arab Emirates</option>
+                <option value="United States">United States</option>
+                <option value="Bangladesh">Bangladesh</option>
+                <option value="Afghanistan">Afghanistan</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="form-organisation">Organisation / Club <span class="required-star">*</span></label>
+              <input type="text" id="form-organisation" placeholder="School, Club, Academy or Team" required>
+            </div>
+          </div>
+
+          <!-- Role -->
+          <div class="form-group">
+            <label for="form-role">Which best describes you? <span class="required-star">*</span></label>
+            <select id="form-role" required>
+              <option value="" disabled selected>Select your role</option>
+              <option value="Cricket Coach">Cricket Coach</option>
+              <option value="Performance Analyst">Performance Analyst</option>
+              <option value="Club Administrator / Official">Club Administrator / Official</option>
+              <option value="Tournament Organizer / Director">Tournament Organizer / Director</option>
+              <option value="Cricketer / Player">Cricketer / Player</option>
+              <option value="Broadcaster / Scorer">Broadcaster / Scorer</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+
+          <!-- Plan Selection -->
+          <div class="form-group">
+            <label for="form-plan">Choose a plan to trial or purchase <span class="required-star">*</span></label>
+            <select id="form-plan" required>
+              <option value="Free 14-Day Trial">Free 14-Day Trial (All features unlocked)</option>
+              <option value="Analyzer Plan ($80/month)">Analyzer Plan ($80 / month)</option>
+              <option value="Analyzer Pro Plan ($125/month - Most Popular)">Analyzer Pro Plan ($125 / month - Most Popular)</option>
+              <option value="Analyzer Pro+ Enterprise ($200/month)">Analyzer Pro+ Enterprise ($200 / month)</option>
+              <option value="Daily Plan: Software + Full Hardware Setup ($75/day)">Daily Match Plan: Software + Full Capturing Rig ($75 / day)</option>
+              <option value="Daily Plan: Software Only ($35/day)">Daily Match Plan: Software License Only ($35 / day)</option>
+              <option value="Single-Side Camera Setup (Custom Quote)">Single-Side Camera Setup (Custom Quote by Location)</option>
+            </select>
+          </div>
+
+          <!-- Message -->
+          <div class="form-group">
+            <label for="form-message">Add a message <span class="optional-tag">(Optional)</span></label>
+            <textarea id="form-message" rows="3" placeholder="Tell us what you're looking for, upcoming fixture dates, ground location, or hardware requirements..."></textarea>
+          </div>
+
+          <!-- Consent Checkbox -->
+          <div class="form-checkbox-group">
+            <label class="custom-checkbox-container">
+              <input type="checkbox" id="form-consent" checked>
+              <span class="custom-checkmark"></span>
+              <span class="checkbox-text">I'd like to receive technical assistance, trial onboarding, and updates from Impact Play.</span>
+            </label>
+          </div>
+
+          <!-- Action Buttons (WhatsApp & PDF/Email) -->
+          <div class="form-actions-wrapper">
+            <div class="actions-hint">
+              <span>Send directly via WhatsApp or download official PDF & email us:</span>
+            </div>
+            <div class="form-action-buttons">
+              <button type="button" class="btn-submit-action btn-submit-whatsapp" onclick="submitOrderViaWhatsApp()">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                <span>Send via WhatsApp (+94 76 273 3698)</span>
+              </button>
+              <button type="button" class="btn-submit-action btn-submit-pdf" onclick="submitOrderViaEmailAndPDF()">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                  <polyline points="14 2 14 8 20 8"></polyline>
+                  <line x1="12" y1="18" x2="12" y2="12"></line>
+                  <polyline points="9 15 12 18 15 15"></polyline>
+                </svg>
+                <span>Download PDF & Email Support</span>
+              </button>
+            </div>
+            <p class="form-secure-note">🔒 We respect your privacy. Impact Play will never share your contact details.</p>
+          </div>
+        </form>
+
+        <!-- Success Feedback Overlay -->
+        <div class="modal-success-state" id="modal-success-state" style="display:none;">
+          <div class="success-icon-wrap">✓</div>
+          <h3 class="success-title">Thank you! Your request has been generated.</h3>
+          <p class="success-desc" id="success-desc">An official PDF summary has been generated for your inquiry. Our team is ready on WhatsApp and Email to assist you.</p>
+          <div class="success-actions">
+            <button class="btn-primary" onclick="closeOrderModal()">Done</button>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
+  <!-- jsPDF Library for Client-side PDF Generation -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>

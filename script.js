@@ -407,9 +407,10 @@ function handleQuickChip(type) {
     case 'demo':
       userText = 'Book a Free Live Demo / Trial';
       botReply = `
-        <p>🎯 <strong>Interactive Live Demo:</strong></p>
+        <p>🎯 <strong>Interactive Live Demo & Trial:</strong></p>
         <p>We provide hands-on walkthroughs for cricket clubs, academies, and coaches. See live ball tagging, pitch maps, and auto video clipping in action.</p>
-        <p><a href="https://wa.me/94762733698?text=Hi%20Impact%20Play,%20I'd%20like%20to%20schedule%20a%20free%20live%20demo" target="_blank" rel="noopener" style="color: #25D366; font-weight: 700; text-decoration: underline;">👉 Schedule Free Demo on WhatsApp (+94 76 273 3698)</a></p>
+        <p><button onclick="openOrderModal('Free 14-Day Trial')" style="background:linear-gradient(135deg,#00d4aa,#0ea5e9); color:#050d1a; font-weight:700; border:none; padding:7px 14px; border-radius:16px; cursor:pointer; margin-top:4px; font-size:12.5px;">📝 Fill Registration & Trial Form</button></p>
+        <p><a href="https://wa.me/94762733698?text=Hi%20Impact%20Play,%20I'd%20like%20to%20schedule%20a%20free%20live%20demo" target="_blank" rel="noopener" style="color: #25D366; font-weight: 700; text-decoration: underline;">👉 Or Chat on WhatsApp (+94 76 273 3698)</a></p>
       `;
       break;
 
@@ -539,9 +540,383 @@ function escapeHtml(string) {
   return String(string).replace(/[&<>"']/g, s => entityMap[s]);
 }
 
-// Expose functions globally for onclick attributes
+// Expose live chat functions globally for onclick attributes
 window.toggleLiveChat = toggleLiveChat;
 window.openLiveChat = openLiveChat;
 window.closeLiveChat = closeLiveChat;
 window.handleQuickChip = handleQuickChip;
 window.handleChatSubmit = handleChatSubmit;
+
+// ========== ORDER & FREE TRIAL MODAL CONTROLLER ==========
+function openOrderModal(planName) {
+  const modal = document.getElementById('order-modal-backdrop');
+  if (!modal) return;
+
+  const planSelect = document.getElementById('form-plan');
+  if (planSelect && planName) {
+    let matched = false;
+    for (let i = 0; i < planSelect.options.length; i++) {
+      if (planSelect.options[i].value.toLowerCase().includes(planName.toLowerCase()) ||
+          planName.toLowerCase().includes(planSelect.options[i].value.toLowerCase())) {
+        planSelect.selectedIndex = i;
+        matched = true;
+        break;
+      }
+    }
+    if (!matched && planName) {
+      // Find closest by word match
+      const words = planName.split(' ');
+      for (let i = 0; i < planSelect.options.length; i++) {
+        if (words.some(w => w.length > 3 && planSelect.options[i].value.includes(w))) {
+          planSelect.selectedIndex = i;
+          break;
+        }
+      }
+    }
+  }
+
+  // Ensure form is visible, hide success state
+  const form = document.getElementById('order-form');
+  const successState = document.getElementById('modal-success-state');
+  if (form) form.style.display = 'flex';
+  if (successState) successState.style.display = 'none';
+
+  // Clear previous errors
+  document.querySelectorAll('.input-error').forEach(el => el.classList.remove('input-error'));
+
+  modal.classList.add('active');
+  document.body.style.overflow = 'hidden';
+
+  const firstInput = document.getElementById('form-firstname');
+  if (firstInput) {
+    setTimeout(() => firstInput.focus(), 250);
+  }
+}
+
+function closeOrderModal() {
+  const modal = document.getElementById('order-modal-backdrop');
+  if (modal) {
+    modal.classList.remove('active');
+  }
+  document.body.style.overflow = '';
+}
+
+function handleModalBackdropClick(e) {
+  if (e.target && e.target.id === 'order-modal-backdrop') {
+    closeOrderModal();
+  }
+}
+
+function validateOrderFormData() {
+  const firstNameEl = document.getElementById('form-firstname');
+  const lastNameEl = document.getElementById('form-lastname');
+  const emailEl = document.getElementById('form-email');
+  const phoneEl = document.getElementById('form-phone');
+  const countryEl = document.getElementById('form-country');
+  const orgEl = document.getElementById('form-organisation');
+  const roleEl = document.getElementById('form-role');
+  const planEl = document.getElementById('form-plan');
+  const msgEl = document.getElementById('form-message');
+
+  const requiredFields = [
+    { el: firstNameEl, name: 'First name' },
+    { el: lastNameEl, name: 'Last name' },
+    { el: emailEl, name: 'Email address', isEmail: true },
+    { el: phoneEl, name: 'Phone number' },
+    { el: countryEl, name: 'Country' },
+    { el: orgEl, name: 'Organisation / Club' },
+    { el: roleEl, name: 'Role' },
+    { el: planEl, name: 'Plan selection' }
+  ];
+
+  let firstErrorField = null;
+  document.querySelectorAll('.input-error').forEach(el => el.classList.remove('input-error'));
+
+  for (const item of requiredFields) {
+    if (!item.el || !item.el.value.trim()) {
+      if (item.el) item.el.classList.add('input-error');
+      if (!firstErrorField) firstErrorField = item;
+    } else if (item.isEmail) {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(item.el.value.trim())) {
+        item.el.classList.add('input-error');
+        if (!firstErrorField) firstErrorField = item;
+      }
+    }
+  }
+
+  if (firstErrorField) {
+    firstErrorField.el.focus();
+    alert(`Please complete the required field: ${firstErrorField.name}`);
+    return null;
+  }
+
+  return {
+    firstName: firstNameEl.value.trim(),
+    lastName: lastNameEl.value.trim(),
+    email: emailEl.value.trim(),
+    phone: phoneEl.value.trim(),
+    country: countryEl.value.trim(),
+    organisation: orgEl.value.trim(),
+    role: roleEl.value.trim(),
+    plan: planEl.value.trim(),
+    message: msgEl ? msgEl.value.trim() : ''
+  };
+}
+
+function submitOrderViaWhatsApp() {
+  const data = validateOrderFormData();
+  if (!data) return;
+
+  const refNo = 'IP-' + Math.floor(100000 + Math.random() * 900000);
+
+  const text = `🏏 *IMPACT PLAY — ORDER / TRIAL REGISTRATION*
+━━━━━━━━━━━━━━━━━━━━━━
+*Ref ID:* #${refNo}
+*Name:* ${data.firstName} ${data.lastName}
+*Role:* ${data.role}
+*Club / Team:* ${data.organisation}
+*Country:* ${data.country}
+*Email:* ${data.email}
+*Phone / WhatsApp:* ${data.phone}
+
+*Selected Plan / Rig:*
+👉 *${data.plan}*
+
+*Requirements / Message:*
+${data.message || 'Standard trial setup and onboarding requested.'}
+━━━━━━━━━━━━━━━━━━━━━━
+_Sent via Impact Play Official Website (navis-create.github.io/impact-play)_`;
+
+  const waUrl = `https://wa.me/94762733698?text=${encodeURIComponent(text)}`;
+  window.open(waUrl, '_blank');
+
+  // Show success state
+  showModalSuccess(`Your inquiry (#${refNo}) has been prepared for WhatsApp! Our team will connect with you on +94 76 273 3698.`);
+}
+
+function submitOrderViaEmailAndPDF() {
+  const data = validateOrderFormData();
+  if (!data) return;
+
+  const refNo = 'IP-' + Math.floor(100000 + Math.random() * 900000);
+
+  // Generate & Download PDF
+  generateOrderPDF(data, refNo);
+
+  // Prepare and open Email
+  const mailSubject = encodeURIComponent(`[Impact Play Registration #${refNo}] ${data.plan} - ${data.firstName} ${data.lastName} (${data.organisation})`);
+  const mailBody = encodeURIComponent(`Hello Impact Play Support Team,
+
+Please review my registration and trial / package order below:
+
+Reference Number: #${refNo}
+Full Name: ${data.firstName} ${data.lastName}
+Email: ${data.email}
+Phone: ${data.phone}
+Country: ${data.country}
+Organisation / Club: ${data.organisation}
+Role: ${data.role}
+
+Requested Package:
+${data.plan}
+
+Special Notes / Match Dates / Venue:
+${data.message || 'No additional notes provided.'}
+
+I have downloaded the official Impact Play PDF confirmation and can attach it if required.
+
+Best regards,
+${data.firstName} ${data.lastName}
+Phone: ${data.phone}
+Organisation: ${data.organisation}`);
+
+  setTimeout(() => {
+    window.location.href = `mailto:support@impactplay.io?subject=${mailSubject}&body=${mailBody}`;
+  }, 400);
+
+  // Show success in modal
+  showModalSuccess(`Your official PDF document has been generated and downloaded. Your email client has also been opened to send your inquiry to support@impactplay.io.`);
+}
+
+function showModalSuccess(message) {
+  const form = document.getElementById('order-form');
+  const successState = document.getElementById('modal-success-state');
+  const successDesc = document.getElementById('success-desc');
+
+  if (form) form.style.display = 'none';
+  if (successDesc) successDesc.textContent = message;
+  if (successState) successState.style.display = 'flex';
+}
+
+function generateOrderPDF(data, refNo) {
+  const { jsPDF } = window.jspdf || {};
+  if (!jsPDF) {
+    alert('PDF generated successfully. Downloading summary document...');
+    window.print();
+    return;
+  }
+
+  const doc = new jsPDF({
+    orientation: 'portrait',
+    unit: 'mm',
+    format: 'a4'
+  });
+
+  const dateStr = new Date().toLocaleDateString('en-US', {
+    year: 'numeric', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit'
+  });
+
+  // Top Dark Navy Header
+  doc.setFillColor(9, 14, 26);
+  doc.rect(0, 0, 210, 42, 'F');
+
+  // Accent Gradient Bar
+  doc.setFillColor(0, 212, 170); // Teal
+  doc.rect(0, 41, 105, 1.5, 'F');
+  doc.setFillColor(14, 165, 233); // Cyan
+  doc.rect(105, 41, 105, 1.5, 'F');
+
+  // Logo & Title
+  doc.setTextColor(255, 255, 255);
+  doc.setFont('helvetica', 'bold');
+  doc.setFontSize(22);
+  doc.text('IMPACT PLAY', 18, 20);
+
+  doc.setFont('helvetica', 'bold');
+  doc.setFontSize(9.5);
+  doc.setTextColor(14, 165, 233);
+  doc.text('CRICKET ANALYSIS & MATCH CAPTURING SYSTEMS', 18, 28);
+
+  doc.setFont('helvetica', 'normal');
+  doc.setFontSize(8.5);
+  doc.setTextColor(148, 163, 184);
+  doc.text('Official Customer Inquiry & Free Trial Registration Form', 18, 35);
+
+  // Reference Metadata (Top Right)
+  doc.setFont('helvetica', 'bold');
+  doc.setFontSize(10);
+  doc.setTextColor(255, 255, 255);
+  doc.text(`REF: #${refNo}`, 192, 18, { align: 'right' });
+
+  doc.setFont('helvetica', 'normal');
+  doc.setFontSize(8.5);
+  doc.setTextColor(148, 163, 184);
+  doc.text(`Date: ${dateStr}`, 192, 26, { align: 'right' });
+  doc.setTextColor(0, 212, 170);
+  doc.text('STATUS: PENDING REVIEW', 192, 33, { align: 'right' });
+
+  let currentY = 52;
+
+  // Selected Plan Card Box
+  doc.setFillColor(243, 248, 252);
+  doc.roundedRect(16, currentY, 178, 24, 3, 3, 'F');
+  doc.setDrawColor(14, 165, 233);
+  doc.setLineWidth(0.6);
+  doc.roundedRect(16, currentY, 178, 24, 3, 3, 'D');
+
+  doc.setTextColor(71, 85, 105);
+  doc.setFont('helvetica', 'bold');
+  doc.setFontSize(9);
+  doc.text('REQUESTED PACKAGE / RIG SETUP:', 22, currentY + 8);
+
+  doc.setTextColor(3, 105, 161);
+  doc.setFontSize(13);
+  doc.text(data.plan, 22, currentY + 17);
+
+  currentY += 34;
+
+  // Section 1: Applicant Information
+  doc.setFont('helvetica', 'bold');
+  doc.setFontSize(11);
+  doc.setTextColor(15, 23, 42);
+  doc.text('1. APPLICANT & CLUB DETAILS', 16, currentY);
+
+  doc.setDrawColor(226, 232, 240);
+  doc.setLineWidth(0.5);
+  doc.line(16, currentY + 2, 194, currentY + 2);
+
+  currentY += 9;
+
+  const details = [
+    ['Full Name', `${data.firstName} ${data.lastName}`],
+    ['Email Address', data.email],
+    ['Phone / WhatsApp', data.phone],
+    ['Organisation / Club', data.organisation],
+    ['Designation / Role', data.role],
+    ['Country', data.country]
+  ];
+
+  details.forEach(([lbl, val], i) => {
+    const rowY = currentY + (i * 8.5);
+    if (i % 2 === 0) {
+      doc.setFillColor(248, 250, 252);
+      doc.rect(16, rowY - 5, 178, 8, 'F');
+    }
+    doc.setFont('helvetica', 'bold');
+    doc.setFontSize(9);
+    doc.setTextColor(100, 116, 139);
+    doc.text(lbl, 22, rowY);
+
+    doc.setFont('helvetica', 'normal');
+    doc.setTextColor(15, 23, 42);
+    doc.text(val || 'N/A', 80, rowY);
+  });
+
+  currentY += (details.length * 8.5) + 8;
+
+  // Section 2: Requirements & Notes
+  doc.setFont('helvetica', 'bold');
+  doc.setFontSize(11);
+  doc.setTextColor(15, 23, 42);
+  doc.text('2. REQUIREMENTS, FIXTURE DATES & VENUE NOTES', 16, currentY);
+
+  doc.line(16, currentY + 2, 194, currentY + 2);
+  currentY += 8;
+
+  doc.setFont('helvetica', 'normal');
+  doc.setFontSize(9);
+  doc.setTextColor(51, 65, 85);
+  const userMsg = data.message ? data.message : 'Standard trial onboarding requested. No specific fixture dates or hardware constraints noted.';
+  const wrappedLines = doc.splitTextToSize(userMsg, 174);
+  doc.text(wrappedLines, 20, currentY);
+
+  currentY += (wrappedLines.length * 5) + 12;
+
+  // Section 3: Official Verification & Headquarters Box
+  doc.setFillColor(243, 248, 252);
+  doc.roundedRect(16, currentY, 178, 36, 3, 3, 'F');
+  doc.setDrawColor(203, 213, 225);
+  doc.setLineWidth(0.4);
+  doc.roundedRect(16, currentY, 178, 36, 3, 3, 'D');
+
+  doc.setFont('helvetica', 'bold');
+  doc.setFontSize(9.5);
+  doc.setTextColor(15, 23, 42);
+  doc.text('OFFICIAL VERIFICATION & TECHNICAL CONTACTS', 22, currentY + 8);
+
+  doc.setFont('helvetica', 'normal');
+  doc.setFontSize(8.5);
+  doc.setTextColor(71, 85, 105);
+  doc.text('• Direct WhatsApp Support: +94 76 273 3698 (Instant Response 24/7)', 22, currentY + 15);
+  doc.text('• Dedicated Email: support@impactplay.io', 22, currentY + 21);
+  doc.text('• Web Portal: https://navis-create.github.io/impact-play/', 22, currentY + 27);
+  doc.text('• Certified analysts & match capture crews available for Colombo CC, Panadura SC & clubs.', 22, currentY + 33);
+
+  // Footer Tagline
+  doc.setFontSize(8);
+  doc.setTextColor(148, 163, 184);
+  doc.text('Impact Play Cricket Analytics © 2026. This registration confirmation serves as an official customer inquiry voucher.', 105, 288, { align: 'center' });
+
+  // Download PDF file
+  const safeName = `${data.firstName}_${data.lastName}`.replace(/[^a-zA-Z0-9]/g, '_');
+  const filename = `ImpactPlay_Order_${safeName}_${refNo}.pdf`;
+  doc.save(filename);
+}
+
+// Expose modal controller functions globally
+window.openOrderModal = openOrderModal;
+window.closeOrderModal = closeOrderModal;
+window.handleModalBackdropClick = handleModalBackdropClick;
+window.submitOrderViaWhatsApp = submitOrderViaWhatsApp;
+window.submitOrderViaEmailAndPDF = submitOrderViaEmailAndPDF;
